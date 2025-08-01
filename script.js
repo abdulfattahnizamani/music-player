@@ -3,29 +3,6 @@ let song = document.getElementById('song');
 let ctrlIcon = document.getElementById('ctrlIcon');
 
 
-function filterSongs(song) {
-    return  {
-        preview: song.preview,
-        author: song.artist.name,
-        title: song.album.title
-    }
-    
-}
-
-function getMusicData() {
-    let baseUrl = `https://corsproxy.io/?https://api.deezer.com/search?q=eminem`;
-    let response = null;
-    fetch(baseUrl).then(res => res.json().then(data => {
-        response = data;
-
-        console.log(data.data)
-        console.log(data.data.map(filterSongs))
-    }))
-    console.log(response);
-    
-}
-getMusicData();
-
 function playPause() {
     if (song.paused) {
         song.play();
